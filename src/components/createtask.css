@@ -1,0 +1,14 @@
+@media all and (min-width: 480px) {
+    .Home {
+      padding: 60px 0;
+    }
+  
+    .Home form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+    .dropdown-menu {
+      max-height: 200px;
+      overflow-y: scroll;
+    }
+  }

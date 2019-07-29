@@ -1,0 +1,22 @@
+@media all and (min-width: 480px) {
+    .Home {
+      padding: 60px 0;
+    }
+  
+    .Home form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+    table {
+      border: 1px solid black;
+      width: 75%;
+    }
+    th {
+      border: 1px solid black;
+      height: 50px;
+    }
+
+    td {
+      border: 1px solid black;
+    }
+  }
