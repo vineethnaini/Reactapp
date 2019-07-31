@@ -203,7 +203,7 @@ class filterUser extends React.Component {
                   <tr>
                     <th>NAME</th>
                     <th>ROLE</th>
-                    {document.cookie.split(";")[1].split("=")[1] ===
+                    {this.props.user.user.roles ===
                       "admin" && <th>ACTION</th>}
                   </tr>
                 }
@@ -213,7 +213,7 @@ class filterUser extends React.Component {
                   <tr key={index.id}>
                     <td>{index.name}</td>
                     <td>{index.roles}</td>
-                    {document.cookie.split(";")[1].split("=")[1] === "admin" &&
+                    {this.props.user.user.roles === "admin" &&
                       index.roles === "normal" && (
                         <td>
                           <Button
@@ -238,7 +238,7 @@ class filterUser extends React.Component {
                           </Button>
                         </td>
                       )}
-                    {document.cookie.split(";")[1].split("=")[1] === "admin" &&
+                    {this.props.user.user.roles === "admin" &&
                       index.roles === "admin" && (
                         <td>
                           <Button variant="outline-primary">

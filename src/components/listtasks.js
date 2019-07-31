@@ -300,7 +300,7 @@ class listTasks extends React.Component {
                   placeholder="Enter title or description"
                 />
               </Form.Group>
-              {document.cookie.split(";")[1].split("=")[1] === "admin" && (
+              {this.props.user.user.roles === "admin" && (
                 <Form.Group as={Col}>
                   <Form.Label>Assignee</Form.Label>
                   {this.props.listed && (
@@ -395,9 +395,9 @@ class listTasks extends React.Component {
                     <th>DESCRIPTION</th>
                     <th>STATUS</th>
                     <th>DUE</th>
-                    {document.cookie.split(";")[1].split("=")[1] ===
+                    {this.props.user.user.roles ===
                       "admin" && <th>ASSIGNEE</th>}
-                    {document.cookie.split(";")[1].split("=")[1] ===
+                    {this.props.user.user.roles ===
                       "admin" && <th>ASSIGNER</th>}
                   </tr>
                 }
@@ -409,7 +409,7 @@ class listTasks extends React.Component {
                     <td>{index.description}</td>
                     <td>{index.status}</td>
                     <td>{index.duetime}</td>
-                    {document.cookie.split(";")[1].split("=")[1] === "admin" &&
+                    {this.props.user.user.roles === "admin" &&
                       this.props.listed &&
                       this.props.usernames.map(
                         i =>
@@ -417,7 +417,7 @@ class listTasks extends React.Component {
                             <td key={i.id}> {i.name}</td>
                           )
                       )}
-                    {document.cookie.split(";")[1].split("=")[1] === "admin" &&
+                    {this.props.user.user.roles === "admin" &&
                       this.props.listed &&
                       this.props.usernames.map(
                         i =>
@@ -426,7 +426,7 @@ class listTasks extends React.Component {
                           )
                       )}
                     {index.assigner_id ==
-                      document.cookie.split(";")[0].split("=")[1] && (
+                      this.props.user.user.id && (
                       <td>
                         <Button
                           variant="danger"
