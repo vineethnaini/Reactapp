@@ -409,10 +409,12 @@ class listTasks extends React.Component {
                     <td>{index.description}</td>
                     <td>{index.status}</td>
                     <td>{index.duetime}</td>
+                    { document.cookie.split(";")[1].split("=")[1] ===
+                      "admin"  &&  this.props.listed && this.props.usernames.map(i => (i.id === index.assignee_id) && <td key = {i.id}> {i.name}</td>)
+                    }
                     {document.cookie.split(";")[1].split("=")[1] ===
-                      "admin" && <td>{index.assignee}</td>}
-                    {document.cookie.split(";")[1].split("=")[1] ===
-                      "admin" && <td>{index.assigner}</td>}
+                      "admin" && this.props.listed && this.props.usernames.map(i => (i.id === index.assigner_id) && <td key = {i.id}> {i.name}</td>)
+                    }
                     {index.assigner_id ==
                       document.cookie.split(";")[0].split("=")[1] && (
                       <td>
