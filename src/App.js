@@ -26,6 +26,7 @@
 // export default App;
 import React from "react";
 import { Login } from "./components/login";
+import {loginUsingRedux} from "./components/loginUsingRedux"
 import { Home } from "./components/home";
 import { userHome } from "./components/userHome";
 import { Register } from "./components/register";
@@ -86,7 +87,7 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/users/" component={userHome} />
-                <Route exact path="/login/" component={Login} />
+                <Route exact path="/login/" component={loginUsingRedux} />
                 {/* <Route path="/logout/" component={Logout} /> */}
                 <Route path="/forgotpassword/" component={forgotPassword} />
                 <Route path="/newpassword/" component={newPassword} />
