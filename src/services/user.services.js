@@ -80,8 +80,8 @@ function getUsers(name, email, role, created_by, currentPage) {
     .then(response => {
       // handle success
       // // console.log(id);
-      console.log(JSON.parse(response.data.list));
-      return JSON.parse(response.data.list);
+      console.log((response.data.list));
+      return (response.data.list);
     })
     .catch(function(error) {
       // handle error
@@ -96,8 +96,8 @@ function listUsers(user_token) {
     .then(response => {
       // handle success
       // // console.log(id);
-      console.log(JSON.parse(response.data.list));
-      return JSON.parse(response.data.list);
+      console.log((response.data.list));
+      return (response.data.list);
     })
     .catch(function(error) {
       // handle error
@@ -205,8 +205,8 @@ function getListTasks(
     .then(response => {
       // handle success
       // // console.log(id);
-      console.log(JSON.parse(response.data.list));
-      return JSON.parse(response.data.list);
+      console.log((response.data.list));
+      return (response.data.list);
     })
     .catch(function(error) {
       // handle error
