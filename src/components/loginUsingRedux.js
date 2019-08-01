@@ -18,9 +18,14 @@ class loginUsingRedux extends React.Component {
     return (
       <div>
         <LoginForm onSubmit={this.submit} />
-        <Button variant="outline-secondary" onClick={() => this.handleForgot()}>
-          forgotPassword
-        </Button>
+        <div className = "text-center">
+          <Button
+            variant="outline-secondary"
+            onClick={() => this.handleForgot()}
+          >
+            forgotPassword
+          </Button>
+        </div>
       </div>
     );
   }
