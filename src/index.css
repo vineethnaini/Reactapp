@@ -21,6 +21,7 @@ code {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  /* position: fixed; */
 }
 
 .topnav a {
@@ -30,6 +31,7 @@ code {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  /* position: sticky; */
 }
 
 .topnav a:hover {
@@ -41,8 +43,6 @@ code {
   background-color: #4CAF50;
   color: white;
 }
-
-
 #login {
   font-size: 16px;
 }
@@ -87,4 +87,13 @@ code {
   border: none;
   font-weight: bold;
   color: #700;
+}
+
+#container-scroll {
+  margin-top: 60px;
+}
+
+#navbar3 {
+  padding-top: 10px;
+  top: 0;
 }

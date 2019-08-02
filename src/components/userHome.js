@@ -47,8 +47,8 @@ class userHome extends React.Component {
     } else {
       return (
         <Router>
-          <div>
-            <Navbar bg="light" expand="lg" className="tabs">
+          <div id="container-scroll">
+            <Navbar id="navbar3"bg="light" expand="lg" className="tabs">
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav

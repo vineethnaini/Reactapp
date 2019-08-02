@@ -102,7 +102,7 @@ class App extends React.Component {
     } */}
           <Router>
             <div>
-              <Navbar className="topnav" expand="lg">
+              <Navbar className="topnav" fixed="top" expand="lg">
                 <Navbar.Brand className="active" href="/">
                   Task Management
                 </Navbar.Brand>
