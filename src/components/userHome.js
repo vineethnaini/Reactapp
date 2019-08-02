@@ -21,6 +21,12 @@ class userHome extends React.Component {
   // logoutbutton() {
   //   this.props.dispatch(userActions.logout())
   // }
+
+  componentDidMount(){
+    if(this.props.loggedIn !== true){
+      this.props.dispatch(userActions.getUser());
+    }
+  }
   render() {
     // const { user } = this.props;
     console.log(this.props);

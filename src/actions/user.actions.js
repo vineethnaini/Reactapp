@@ -49,7 +49,7 @@ function login(email, password) {
               // localStorage.setItem('userdata', (response.data.user.roles));
               // localStorage.setItem('userid', (response.data.user.id));
               console.log(response);
-              dispatch(success(response.data));
+              dispatch(success(response.data.user));
               history.push('/users/');
               // window.location.replace("http://localhost:3000/users");
           })
@@ -174,20 +174,20 @@ function create(name, email, password){
   function request(user) { return { type: userConstants.CREATE_REQUEST, user } }
 }
 
-function getUser(id){
+function getUser(){
   return dispatch => {
     dispatch(request());
-  // console.log(id);
-  userService.getById(id).then(
+  // console.log("asdfghjkl");
+  userService.getById().then(
 
       user => dispatch(success(user)),
       error => dispatch(failure(error))
   );
 
   };
-  function request() { return { type: userConstants.GET_REQUEST}}
-  function success(user) { return { type: userConstants.GET_SUCCESS, user} }
-  function failure(error) { return { type: userConstants.GET_FAILURE, error } }
+  function request() { return { type: userConstants.LOGIN_REQUEST}}
+  function success(user) { return { type: userConstants.LOGIN_SUCCESS, user} }
+  function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 function filterUser(name,email,role,created_by,currentPage){
   return dispatch => {

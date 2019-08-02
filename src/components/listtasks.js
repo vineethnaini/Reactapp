@@ -137,6 +137,7 @@ class listTasks extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(userActions.userList());
+    // this.props.dispatch(userActions.getUser())
     // this.props.dispatch(userActions.listTasks(this.state.title,this.state.assignee_id,this.state.assigner_id,this.state.start_time,this.state.end_time,this.state.currentPage));
   }
   handleInputChange(event) {
@@ -300,7 +301,7 @@ class listTasks extends React.Component {
                   placeholder="Enter title or description"
                 />
               </Form.Group>
-              {this.props.user.user.roles === "admin" && (
+              {this.props.loggedIn && this.props.user.roles === "admin" && (
                 <Form.Group as={Col}>
                   <Form.Label>Assignee</Form.Label>
                   {this.props.listed && (
@@ -336,7 +337,7 @@ class listTasks extends React.Component {
                   <Dropdown>
                     <Dropdown.Toggle>{assigner_name}</Dropdown.Toggle>
                     <Dropdown.Menu>
-                      {this.props.usernames.map(
+                      {this.props.loggedIn && this.props.usernames.map(
                         index =>
                           index.roles === "admin" && (
                             <Dropdown.Item
@@ -395,9 +396,9 @@ class listTasks extends React.Component {
                     <th>DESCRIPTION</th>
                     <th>STATUS</th>
                     <th>DUE</th>
-                    {this.props.user.user.roles ===
+                    {this.props.loggedIn && this.props.user.roles ===
                       "admin" && <th>ASSIGNEE</th>}
-                    {this.props.user.user.roles ===
+                    {this.props.loggedIn && this.props.user.roles ===
                       "admin" && <th>ASSIGNER</th>}
                   </tr>
                 }
@@ -409,7 +410,7 @@ class listTasks extends React.Component {
                     <td>{index.description}</td>
                     <td>{index.status}</td>
                     <td>{index.duetime}</td>
-                    {this.props.user.user.roles === "admin" &&
+                    {this.props.loggedIn && this.props.user.roles === "admin" &&
                       this.props.listed &&
                       this.props.usernames.map(
                         i =>
@@ -417,7 +418,7 @@ class listTasks extends React.Component {
                             <td key={i.id}> {i.name}</td>
                           )
                       )}
-                    {this.props.user.user.roles === "admin" &&
+                    {this.props.loggedIn && this.props.user.roles === "admin" &&
                       this.props.listed &&
                       this.props.usernames.map(
                         i =>
@@ -425,8 +426,8 @@ class listTasks extends React.Component {
                             <td key={i.id}> {i.name}</td>
                           )
                       )}
-                    {index.assigner_id ==
-                      this.props.user.user.id && (
+                    {this.props.loggedIn && index.assigner_id ==
+                      this.props.user.id && (
                       <td>
                         <Button
                           variant="danger"
@@ -470,14 +471,15 @@ class listTasks extends React.Component {
 function mapStateToProps(state) {
   const { tasklisting, tasks, tasklisted } = state.listtasks;
   const { listed, usernames } = state.list;
-  const { user } = state.authentication;
+  const { user,loggedIn } = state.authentication;
   return {
     tasklisting,
     tasks,
     tasklisted,
     listed,
     usernames,
-    user
+    user,
+    loggedIn
   };
 }
 const connectedTaskListPage = connect(mapStateToProps)(listTasks);

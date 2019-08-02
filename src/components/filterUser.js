@@ -203,7 +203,7 @@ class filterUser extends React.Component {
                   <tr>
                     <th>NAME</th>
                     <th>ROLE</th>
-                    {this.props.user.user.roles ===
+                    {this.props.loggedIn && this.props.user.roles ===
                       "admin" && <th>ACTION</th>}
                   </tr>
                 }
@@ -213,7 +213,7 @@ class filterUser extends React.Component {
                   <tr key={index.id}>
                     <td>{index.name}</td>
                     <td>{index.roles}</td>
-                    {this.props.user.user.roles === "admin" &&
+                    {this.props.loggedIn && this.props.user.roles === "admin" &&
                       index.roles === "normal" && (
                         <td>
                           <Button
@@ -238,7 +238,7 @@ class filterUser extends React.Component {
                           </Button>
                         </td>
                       )}
-                    {this.props.user.user.roles === "admin" &&
+                    {this.props.loggedIn && this.props.user.roles === "admin" &&
                       index.roles === "admin" && (
                         <td>
                           <Button variant="outline-primary">
@@ -299,12 +299,13 @@ class filterUser extends React.Component {
 
 function mapStateToProps(state) {
   const { filtering, users, filtered } = state.filter;
-  const { user } = state.authentication;
+  const { user, loggedIn } = state.authentication;
   return {
     filtering,
     users,
     filtered,
-    user
+    user,
+    loggedIn
   };
 }
 const connectedFilterPage = connect(mapStateToProps)(filterUser);

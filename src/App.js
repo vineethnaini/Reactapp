@@ -25,11 +25,10 @@
 
 // export default App;
 import React from "react";
-import { Login } from "./components/login";
 import {loginUsingRedux} from "./components/loginUsingRedux"
+import {registerUsingRedux} from "./components/registerUsingRedux"
 import { Home } from "./components/home";
 import { userHome } from "./components/userHome";
-import { Register } from "./components/register";
 // import {resetPassword} from './containers/resetPassword'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -39,8 +38,6 @@ import { forgotPassword } from "./components/forgotPassword";
 import { newPassword } from "./components/newpassword";
 import Button from "react-bootstrap/Button";
 import { userActions } from "./actions/user.actions";
-// import history from "./history";
-import { alertActions } from "./actions/alert.actions";
 
 class App extends React.Component {
   constructor(props) {
@@ -91,7 +88,7 @@ class App extends React.Component {
                 {/* <Route path="/logout/" component={Logout} /> */}
                 <Route path="/forgotpassword/" component={forgotPassword} />
                 <Route path="/newpassword/" component={newPassword} />
-                <Route path="/register/" component={Register} />
+                <Route path="/register/" component={registerUsingRedux} />
               </Switch>
             </div>
           </Router>

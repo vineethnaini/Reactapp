@@ -44,9 +44,9 @@ function loginUser(email, password) {
       }
     });
 }
-function getById(id) {
+function getById() {
   return axios
-    .get("http://localhost:8000/users/" + id, {
+    .get("http://localhost:8000/users/user", {
       withCredentials: true
     })
     .then(response => {
