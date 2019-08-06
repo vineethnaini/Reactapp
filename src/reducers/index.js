@@ -15,7 +15,7 @@ import { listtasks } from "./listtasks.reducer";
 import { createtask } from "./createtask.reducer";
 import { profile } from "./profile.reducer";
 import { profiletasks } from "./profiletasks.reducer";
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from "redux-form";
 
 const rootReducer = combineReducers({
   authentication,

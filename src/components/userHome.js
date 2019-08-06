@@ -22,8 +22,9 @@ class userHome extends React.Component {
   //   this.props.dispatch(userActions.logout())
   // }
 
-  componentDidMount(){
-    if(this.props.loggedIn !== true){
+  componentDidMount() {
+    console.log(document.cookie)
+    if (document.cookie !== "") {
       this.props.dispatch(userActions.getUser());
     }
   }
@@ -48,7 +49,12 @@ class userHome extends React.Component {
       return (
         <Router>
           <div id="container-scroll">
-            <Navbar id="navbar3"bg="light" expand="lg" className="tabs">
+            <Navbar
+              id="navbar3"
+              bg="light"
+              expand="lg"
+              className="nav nav-tabs tabs"
+            >
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav

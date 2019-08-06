@@ -25,8 +25,8 @@
 
 // export default App;
 import React from "react";
-import {loginUsingRedux} from "./components/loginUsingRedux"
-import {registerUsingRedux} from "./components/registerUsingRedux"
+import { loginUsingRedux } from "./components/loginUsingRedux";
+import { registerUsingRedux } from "./components/registerUsingRedux";
 import { Home } from "./components/home";
 import { userHome } from "./components/userHome";
 // import {resetPassword} from './containers/resetPassword'

@@ -337,20 +337,24 @@ class listTasks extends React.Component {
                   <Dropdown>
                     <Dropdown.Toggle>{assigner_name}</Dropdown.Toggle>
                     <Dropdown.Menu>
-                      {this.props.loggedIn && this.props.usernames.map(
-                        index =>
-                          index.roles === "admin" && (
-                            <Dropdown.Item
-                              key={index.id}
-                              onSelect={() =>
-                                this.handleSelectAssigner(index.id, index.name)
-                              }
-                              active={index.id === assigner_id}
-                            >
-                              {index.name}
-                            </Dropdown.Item>
-                          )
-                      )}
+                      {this.props.loggedIn &&
+                        this.props.usernames.map(
+                          index =>
+                            index.roles === "admin" && (
+                              <Dropdown.Item
+                                key={index.id}
+                                onSelect={() =>
+                                  this.handleSelectAssigner(
+                                    index.id,
+                                    index.name
+                                  )
+                                }
+                                active={index.id === assigner_id}
+                              >
+                                {index.name}
+                              </Dropdown.Item>
+                            )
+                        )}
                       <Dropdown.Item
                         onSelect={() =>
                           this.handleSelectAssigner("", "..Select..")
@@ -396,10 +400,10 @@ class listTasks extends React.Component {
                     <th>DESCRIPTION</th>
                     <th>STATUS</th>
                     <th>DUE</th>
-                    {this.props.loggedIn && this.props.user.roles ===
-                      "admin" && <th>ASSIGNEE</th>}
-                    {this.props.loggedIn && this.props.user.roles ===
-                      "admin" && <th>ASSIGNER</th>}
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" && <th>ASSIGNEE</th>}
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" && <th>ASSIGNER</th>}
                   </tr>
                 }
               </thead>
@@ -410,7 +414,8 @@ class listTasks extends React.Component {
                     <td>{index.description}</td>
                     <td>{index.status}</td>
                     <td>{index.duetime}</td>
-                    {this.props.loggedIn && this.props.user.roles === "admin" &&
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" &&
                       this.props.listed &&
                       this.props.usernames.map(
                         i =>
@@ -418,7 +423,8 @@ class listTasks extends React.Component {
                             <td key={i.id}> {i.name}</td>
                           )
                       )}
-                    {this.props.loggedIn && this.props.user.roles === "admin" &&
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" &&
                       this.props.listed &&
                       this.props.usernames.map(
                         i =>
@@ -426,30 +432,30 @@ class listTasks extends React.Component {
                             <td key={i.id}> {i.name}</td>
                           )
                       )}
-                    {this.props.loggedIn && index.assigner_id ==
-                      this.props.user.id && (
-                      <td>
-                        <Button
-                          variant="danger"
-                          onClick={() => this.handleDelete(index.id)}
-                        >
-                          Delete
-                        </Button>
-                        <Example
-                          title={index.title}
-                          description={index.description}
-                          duetime={index.duetime}
-                          id={index.id}
-                          dispatch={this.props.dispatch}
-                          title_form={this.state.title}
-                          assignee_id={this.state.assignee_id}
-                          assigner_id={this.state.assigner_id}
-                          start_time={this.state.start_time}
-                          end_time={this.state.end_time}
-                          currentPage={this.state.currentPage}
-                        />
-                      </td>
-                    )}
+                    {this.props.loggedIn &&
+                      index.assigner_id == this.props.user.id && (
+                        <td>
+                          <Button
+                            variant="danger"
+                            onClick={() => this.handleDelete(index.id)}
+                          >
+                            Delete
+                          </Button>
+                          <Example
+                            title={index.title}
+                            description={index.description}
+                            duetime={index.duetime}
+                            id={index.id}
+                            dispatch={this.props.dispatch}
+                            title_form={this.state.title}
+                            assignee_id={this.state.assignee_id}
+                            assigner_id={this.state.assigner_id}
+                            start_time={this.state.start_time}
+                            end_time={this.state.end_time}
+                            currentPage={this.state.currentPage}
+                          />
+                        </td>
+                      )}
                   </tr>
                 ))}
               </tbody>
@@ -471,7 +477,7 @@ class listTasks extends React.Component {
 function mapStateToProps(state) {
   const { tasklisting, tasks, tasklisted } = state.listtasks;
   const { listed, usernames } = state.list;
-  const { user,loggedIn } = state.authentication;
+  const { user, loggedIn } = state.authentication;
   return {
     tasklisting,
     tasks,

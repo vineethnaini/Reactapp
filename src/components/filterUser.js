@@ -203,8 +203,8 @@ class filterUser extends React.Component {
                   <tr>
                     <th>NAME</th>
                     <th>ROLE</th>
-                    {this.props.loggedIn && this.props.user.roles ===
-                      "admin" && <th>ACTION</th>}
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" && <th>ACTION</th>}
                   </tr>
                 }
               </thead>
@@ -213,7 +213,8 @@ class filterUser extends React.Component {
                   <tr key={index.id}>
                     <td>{index.name}</td>
                     <td>{index.roles}</td>
-                    {this.props.loggedIn && this.props.user.roles === "admin" &&
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" &&
                       index.roles === "normal" && (
                         <td>
                           <Button
@@ -238,7 +239,8 @@ class filterUser extends React.Component {
                           </Button>
                         </td>
                       )}
-                    {this.props.loggedIn && this.props.user.roles === "admin" &&
+                    {this.props.loggedIn &&
+                      this.props.user.roles === "admin" &&
                       index.roles === "admin" && (
                         <td>
                           <Button variant="outline-primary">
