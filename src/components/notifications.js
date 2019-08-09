@@ -6,22 +6,18 @@ import { userActions } from "../actions/user.actions";
 class Notifications extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
-  componentDidMount() {
-  }
+  componentDidMount() {}
   render() {
     return (
-        <div>
+      <div>
         <ul>
-        {
-            this.props.notifications.map(index => (
-                    <li key = {index.message}>{index.message}</li>
-            ))
-        }
+          {this.props.notifications.map(index => (
+            <li key={index.message}>{index.message}</li>
+          ))}
         </ul>
-        </div>
+      </div>
     );
   }
 }
@@ -29,7 +25,7 @@ class Notifications extends React.Component {
 function mapStateToProps(state) {
   const { notifications } = state.notification;
   return {
-      notifications
+    notifications
   };
 }
 

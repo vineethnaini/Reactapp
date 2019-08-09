@@ -25,22 +25,22 @@ class userHome extends React.Component {
   // }
 
   componentDidMount() {
-    console.log(document.cookie)
+    console.log(document.cookie);
     if (document.cookie !== "") {
       this.props.dispatch(userActions.getUser());
     }
-  //   var pusher = new Pusher('3834f98a5f4e0cf5e369', {
-  //     appId: '838378',
-  //     key: '3834f98a5f4e0cf5e369',
-  //     secret: 'a2d9c2b500ad2e9a03a9',
-  //     cluster: 'ap2',
-  //     // encrypted: true
-  // });
-  // Pusher.logToConsole = true;
-  // var channel = pusher.subscribe('my-channel');
-  // channel.bind('my-event', function(data) {
-  //   alert('An event was triggered with message: ' + data.message);
-  // });
+    //   var pusher = new Pusher('3834f98a5f4e0cf5e369', {
+    //     appId: '838378',
+    //     key: '3834f98a5f4e0cf5e369',
+    //     secret: 'a2d9c2b500ad2e9a03a9',
+    //     cluster: 'ap2',
+    //     // encrypted: true
+    // });
+    // Pusher.logToConsole = true;
+    // var channel = pusher.subscribe('my-channel');
+    // channel.bind('my-event', function(data) {
+    //   alert('An event was triggered with message: ' + data.message);
+    // });
   }
   render() {
     // const { user } = this.props;
@@ -136,7 +136,11 @@ class userHome extends React.Component {
             </Navbar>
             <Switch>
               <Route exact path="/users/filter" component={filterUser} />
-              <Route exact path="/users/notifications" component={Notifications} />
+              <Route
+                exact
+                path="/users/notifications"
+                component={Notifications}
+              />
               <Route path="/users/create" component={CreateUser} />
               <Route exact path="/users/tasks/create" component={createTask} />
               <Route exact path="/users/tasks/list" component={listTasks} />
@@ -153,7 +157,7 @@ class userHome extends React.Component {
 function mapStateToProps(state) {
   const { users, authentication } = state;
   const { user, loggedIn } = authentication;
-  const {notifications} = state.notification
+  const { notifications } = state.notification;
   return {
     user,
     users,
