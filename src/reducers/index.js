@@ -15,6 +15,7 @@ import { listtasks } from "./listtasks.reducer";
 import { createtask } from "./createtask.reducer";
 import { profile } from "./profile.reducer";
 import { profiletasks } from "./profiletasks.reducer";
+import { notification } from "./notification.reducer"
 import { reducer as formReducer } from "redux-form";
 
 const rootReducer = combineReducers({
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   profile,
   profiletasks,
   profilepie,
+  notification,
   form: formReducer
 });
 

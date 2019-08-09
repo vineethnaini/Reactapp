@@ -12,10 +12,12 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { Login } from "./login";
 import Dashboard from "./dashboard";
+import { Notifications } from "./notifications";
 import { listTasks } from "./listtasks";
 import { createTask } from "./createtask";
 import { Navbar, Nav } from "react-bootstrap";
 import { alertActions } from "../actions/alert.actions";
+// const Pusher = require('pusher-js');
 
 class userHome extends React.Component {
   // logoutbutton() {
@@ -27,6 +29,18 @@ class userHome extends React.Component {
     if (document.cookie !== "") {
       this.props.dispatch(userActions.getUser());
     }
+  //   var pusher = new Pusher('3834f98a5f4e0cf5e369', {
+  //     appId: '838378',
+  //     key: '3834f98a5f4e0cf5e369',
+  //     secret: 'a2d9c2b500ad2e9a03a9',
+  //     cluster: 'ap2',
+  //     // encrypted: true
+  // });
+  // Pusher.logToConsole = true;
+  // var channel = pusher.subscribe('my-channel');
+  // channel.bind('my-event', function(data) {
+  //   alert('An event was triggered with message: ' + data.message);
+  // });
   }
   render() {
     // const { user } = this.props;
@@ -63,10 +77,6 @@ class userHome extends React.Component {
                   expand="lg"
                   defaultActiveKey="/users/dashboard"
                 >
-                  {/* <Nav.Item>
-                <Link to ="/tasks/dashboard">Dashboard</Link>
-              </Nav.Item> */}
-
                   <Nav.Item>
                     <NavLink
                       activeStyle={{ fontWeight: "bold", color: "red" }}
@@ -112,24 +122,26 @@ class userHome extends React.Component {
                       Createtask
                     </NavLink>
                   </Nav.Item>
-
-                  {/* <Nav.Item>
-                <Link to="/users/:id">Get user profile</Link>
-              </Nav.Item> */}
+                  <Nav.Item>
+                    <NavLink
+                      activeStyle={{ fontWeight: "bold", color: "red" }}
+                      to="/users/notifications"
+                      className="mx-1"
+                    >
+                      notifications
+                    </NavLink>
+                  </Nav.Item>
                 </Nav>
-                {/* <Nav className ="ml-auto">
-                <Button variant="outline-dark"onClick= {() => this.logoutbutton()}>Logout</Button>
-            </Nav> */}
               </Navbar.Collapse>
             </Navbar>
             <Switch>
               <Route exact path="/users/filter" component={filterUser} />
+              <Route exact path="/users/notifications" component={Notifications} />
               <Route path="/users/create" component={CreateUser} />
               <Route exact path="/users/tasks/create" component={createTask} />
               <Route exact path="/users/tasks/list" component={listTasks} />
               <Route path="/users/dashboard" component={Dashboard} />
               <Route path="/users/:id" component={Profile} />
-              {/* { <Route path="/users/:id/delete" component={deleteUser} /> } */}
             </Switch>
           </div>
         </Router>
@@ -141,10 +153,12 @@ class userHome extends React.Component {
 function mapStateToProps(state) {
   const { users, authentication } = state;
   const { user, loggedIn } = authentication;
+  const {notifications} = state.notification
   return {
     user,
     users,
-    loggedIn
+    loggedIn,
+    notifications
   };
 }
 
